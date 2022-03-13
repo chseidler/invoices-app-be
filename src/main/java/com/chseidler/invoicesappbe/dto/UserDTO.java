@@ -10,6 +10,7 @@ public class UserDTO implements Serializable {
     private String fullName;
     private String nickname;
     private String email;
+    private String password;
     private String encryptedPassword;
 
     public long getId() {
@@ -50,6 +51,14 @@ public class UserDTO implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEncryptedPassword() {
