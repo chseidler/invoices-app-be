@@ -1,9 +1,11 @@
 package com.chseidler.invoicesappbe.controller;
 
 import com.chseidler.invoicesappbe.dto.UserDTO;
+import com.chseidler.invoicesappbe.exception.UserServiceException;
 import com.chseidler.invoicesappbe.model.request.UserDetailsRequestModel;
 import com.chseidler.invoicesappbe.model.ui.UserRest;
 import com.chseidler.invoicesappbe.service.UserService;
+import com.chseidler.invoicesappbe.utils.ErrorMessages;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +24,19 @@ public class UserController {
     public UserRest createUser(@RequestBody UserDetailsRequestModel userDetails) {
 
         if (userDetails.getEmail().isEmpty()) {
-            throw new RuntimeException("Favor ensira e-mail");
+            throw new UserServiceException(ErrorMessages.MISSING_REQUIRED_FIELDS.getErrorMessage());
+        }
+
+        if (userDetails.getNickname().isEmpty()) {
+            throw new UserServiceException(ErrorMessages.MISSING_REQUIRED_FIELDS.getErrorMessage());
+        }
+
+        if (userDetails.getPassword().isEmpty()) {
+            throw new UserServiceException(ErrorMessages.MISSING_REQUIRED_FIELDS.getErrorMessage());
+        }
+
+        if (userDetails.getFullName().isEmpty()) {
+            throw new UserServiceException(ErrorMessages.MISSING_REQUIRED_FIELDS.getErrorMessage());
         }
 
         UserRest userRest = new UserRest();

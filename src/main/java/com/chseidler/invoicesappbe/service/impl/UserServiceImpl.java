@@ -2,8 +2,10 @@ package com.chseidler.invoicesappbe.service.impl;
 
 import com.chseidler.invoicesappbe.dto.UserDTO;
 import com.chseidler.invoicesappbe.entity.UserEntity;
+import com.chseidler.invoicesappbe.exception.UserServiceException;
 import com.chseidler.invoicesappbe.repository.UserRepository;
 import com.chseidler.invoicesappbe.service.UserService;
+import com.chseidler.invoicesappbe.utils.ErrorMessages;
 import com.chseidler.invoicesappbe.utils.Utils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +38,7 @@ public class UserServiceImpl implements UserService {
 
         UserEntity userEntityByEmail = userRepository.findByEmail(userDTO.getEmail());
         if (userEntityByEmail != null) {
-            throw new RuntimeException("Usuario ja existe.");
+            throw new UserServiceException(ErrorMessages.RECORD_ALREADY_EXIST.getErrorMessage());
         }
 
         UserEntity userEntity = new UserEntity();
@@ -59,7 +61,7 @@ public class UserServiceImpl implements UserService {
 
         UserEntity userEntity = userRepository.findByNickname(nickname);
         if (userEntity == null) {
-            throw new RuntimeException("Usuario não encontrado.");
+            throw new UsernameNotFoundException(nickname);
         }
 
         UserDTO returnUserDTO = new UserDTO();
@@ -75,7 +77,7 @@ public class UserServiceImpl implements UserService {
         UserEntity userEntityByUserId = userRepository.findByUserId(userId);
 
         if(userEntityByUserId == null) {
-            throw new RuntimeException("Usuario não encontrado.");
+            throw new UsernameNotFoundException(userId);
         }
 
         BeanUtils.copyProperties(userEntityByUserId, returnUserDTO);
@@ -109,7 +111,7 @@ public class UserServiceImpl implements UserService {
 
         UserEntity userEntity = userRepository.findByEmail(email);
         if (userEntity == null) {
-            throw new RuntimeException("Usuario não encontrado.");
+            throw new UsernameNotFoundException(email);
         }
 
         return new User(userEntity.getEmail(), userEntity.getEncryptedPassword(), new ArrayList<>());
