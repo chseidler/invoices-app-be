@@ -55,9 +55,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDTO getUser(String email) {
+    public UserDTO getUser(String nickname) {
 
-        UserEntity userEntity = userRepository.findByEmail(email);
+        UserEntity userEntity = userRepository.findByNickname(nickname);
         if (userEntity == null) {
             throw new RuntimeException("Usuario não encontrado.");
         }

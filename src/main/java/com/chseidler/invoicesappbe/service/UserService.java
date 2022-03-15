@@ -8,7 +8,7 @@ import java.util.List;
 public interface UserService extends UserDetailsService {
 
     public UserDTO createUser(UserDTO userDTO);
-    public UserDTO getUser(String email);
+    public UserDTO getUser(String nickname);
     public UserDTO getUserByUserId(String userId);
     public List<UserDTO> getUsers(int page, int limit);
 }
