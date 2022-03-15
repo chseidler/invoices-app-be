@@ -9,7 +9,7 @@ public class UserEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(nullable = false)
@@ -18,7 +18,7 @@ public class UserEntity implements Serializable {
     @Column(nullable = false, length = 50)
     private String fullName;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, length = 20, unique = true)
     private String nickname;
 
     @Column(nullable = false, length = 100, unique = true)
