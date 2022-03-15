@@ -1,45 +1,15 @@
-package com.chseidler.invoicesappbe.entity;
+package com.chseidler.invoicesappbe.model.request;
 
-
-import javax.persistence.*;
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-@Entity(name = "invoices")
-public class InvoiceEntity implements Serializable {
+public class InvoiceDetailsRequestModel {
 
-    private static final long serialVersionUID = 1L;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
-    @Column(nullable = false)
     private String userId;
-
-    @Column(nullable = false)
-    private String invoiceId;
-
-    @Column(nullable = false)
     private String invoiceName;
-
-    @Column(nullable = false)
     private Date invoiceDate;
-
-    @Column(nullable = false, precision = 11, scale = 2)
     private BigDecimal invoiceValue;
-
-    @Column(nullable = false)
     private String invoiceStatus;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getUserId() {
         return userId;
@@ -47,14 +17,6 @@ public class InvoiceEntity implements Serializable {
 
     public void setUserId(String userId) {
         this.userId = userId;
-    }
-
-    public String getInvoiceId() {
-        return invoiceId;
-    }
-
-    public void setInvoiceId(String invoiceId) {
-        this.invoiceId = invoiceId;
     }
 
     public String getInvoiceName() {

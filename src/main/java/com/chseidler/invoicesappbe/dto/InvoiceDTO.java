@@ -1,36 +1,19 @@
-package com.chseidler.invoicesappbe.entity;
+package com.chseidler.invoicesappbe.dto;
 
-
-import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-@Entity(name = "invoices")
-public class InvoiceEntity implements Serializable {
+public class InvoiceDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @Column(nullable = false)
     private String userId;
-
-    @Column(nullable = false)
     private String invoiceId;
-
-    @Column(nullable = false)
     private String invoiceName;
-
-    @Column(nullable = false)
     private Date invoiceDate;
-
-    @Column(nullable = false, precision = 11, scale = 2)
     private BigDecimal invoiceValue;
-
-    @Column(nullable = false)
     private String invoiceStatus;
 
     public long getId() {
