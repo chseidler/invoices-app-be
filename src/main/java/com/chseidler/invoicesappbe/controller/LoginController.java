@@ -1,9 +1,11 @@
 package com.chseidler.invoicesappbe.controller;
 
 import com.chseidler.invoicesappbe.dto.UserDTO;
+import com.chseidler.invoicesappbe.exception.UserServiceException;
 import com.chseidler.invoicesappbe.model.request.UserLoginRequestModel;
 import com.chseidler.invoicesappbe.model.ui.LoginRest;
 import com.chseidler.invoicesappbe.service.UserService;
+import com.chseidler.invoicesappbe.utils.ErrorMessages;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -29,10 +31,10 @@ public class LoginController {
 
         if (isAuthenticated) {
             BeanUtils.copyProperties(userDTO, loginRest);
+        } else {
+            throw new UserServiceException(ErrorMessages.CAN_NOT_LOGIN.getErrorMessage());
         }
 
         return loginRest;
     }
-
-
 }

@@ -4,7 +4,8 @@ public enum ErrorMessages {
 
     MISSING_REQUIRED_FIELDS("Favor preencher todos campos."),
     RECORD_ALREADY_EXIST("Usuário ja existente."),
-    RECORD_NOT_FOUND("Usuário não encontrado.");
+    RECORD_NOT_FOUND("Usuário não encontrado."),
+    CAN_NOT_LOGIN("Usuário e(ou) senha incorreto(s).");
 
     private String errorMessage;
 

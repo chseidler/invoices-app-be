@@ -61,7 +61,7 @@ public class UserServiceImpl implements UserService {
 
         UserEntity userEntity = userRepository.findByNickname(nickname);
         if (userEntity == null) {
-            throw new UsernameNotFoundException(nickname);
+            throw new UserServiceException(ErrorMessages.CAN_NOT_LOGIN.getErrorMessage());
         }
 
         UserDTO returnUserDTO = new UserDTO();
