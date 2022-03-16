@@ -116,4 +116,20 @@ public class InvoiceServiceImpl implements InvoiceService {
 
         return invoiceDTOList;
     }
+
+    @Override
+    public List<InvoiceDTO> getInvoicesByUserId(String userId) {
+
+        List<InvoiceDTO> invoiceDTOList = new ArrayList<>();
+
+        List<InvoiceEntity> invoiceEntityList = invoiceRepository.findByUserId(userId);
+
+        for (InvoiceEntity invoiceEntity : invoiceEntityList) {
+            InvoiceDTO invoiceDTO = new InvoiceDTO();
+            BeanUtils.copyProperties(invoiceEntity, invoiceDTO);
+            invoiceDTOList.add(invoiceDTO);
+        }
+
+        return invoiceDTOList;
+    }
 }
