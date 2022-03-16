@@ -5,10 +5,19 @@ import java.util.Date;
 
 public class InvoiceRest {
 
+    private String invoiceId;
     private String invoiceName;
-    private Date invoiceDate;
-    private BigDecimal invoiceValue;
+    private String invoiceDate;
+    private Double invoiceValue;
     private String invoiceStatus;
+
+    public String getInvoiceId() {
+        return invoiceId;
+    }
+
+    public void setInvoiceId(String invoiceId) {
+        this.invoiceId = invoiceId;
+    }
 
     public String getInvoiceName() {
         return invoiceName;
@@ -18,19 +27,19 @@ public class InvoiceRest {
         this.invoiceName = invoiceName;
     }
 
-    public Date getInvoiceDate() {
+    public String getInvoiceDate() {
         return invoiceDate;
     }
 
-    public void setInvoiceDate(Date invoiceDate) {
+    public void setInvoiceDate(String invoiceDate) {
         this.invoiceDate = invoiceDate;
     }
 
-    public BigDecimal getInvoiceValue() {
+    public Double getInvoiceValue() {
         return invoiceValue;
     }
 
-    public void setInvoiceValue(BigDecimal invoiceValue) {
+    public void setInvoiceValue(Double invoiceValue) {
         this.invoiceValue = invoiceValue;
     }
 

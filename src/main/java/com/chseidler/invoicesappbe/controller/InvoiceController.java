@@ -86,7 +86,7 @@ public class InvoiceController {
     }
 
     @DeleteMapping(path = "/{id}")
-    public void deleteInvoice(String invoiceId) {
+    public void deleteInvoice(@PathVariable("id") String invoiceId) {
 
         invoiceService.deleteInvoice(invoiceId);
     }
