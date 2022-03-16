@@ -18,7 +18,7 @@ public class InvoiceEntity implements Serializable {
     @Column(nullable = false)
     private String userId;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String invoiceId;
 
     @Column(nullable = false)

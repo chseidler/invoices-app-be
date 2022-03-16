@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface InvoiceRepository extends PagingAndSortingRepository<InvoiceEntity, Long> {
 
     InvoiceEntity findByUserId(String userId);
+
+    InvoiceEntity findByInvoiceId(String invoiceId);
 }
