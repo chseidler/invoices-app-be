@@ -3,8 +3,6 @@ package com.chseidler.invoicesappbe.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Date;
 
 @Entity(name = "invoices")
 public class InvoiceEntity implements Serializable {
@@ -25,10 +23,10 @@ public class InvoiceEntity implements Serializable {
     private String invoiceName;
 
     @Column(nullable = false)
-    private Date invoiceDate;
+    private String invoiceDate;
 
     @Column(nullable = false, precision = 11, scale = 2)
-    private BigDecimal invoiceValue;
+    private Double invoiceValue;
 
     @Column(nullable = false)
     private String invoiceStatus;
@@ -65,19 +63,19 @@ public class InvoiceEntity implements Serializable {
         this.invoiceName = invoiceName;
     }
 
-    public Date getInvoiceDate() {
+    public String getInvoiceDate() {
         return invoiceDate;
     }
 
-    public void setInvoiceDate(Date invoiceDate) {
+    public void setInvoiceDate(String invoiceDate) {
         this.invoiceDate = invoiceDate;
     }
 
-    public BigDecimal getInvoiceValue() {
+    public Double getInvoiceValue() {
         return invoiceValue;
     }
 
-    public void setInvoiceValue(BigDecimal invoiceValue) {
+    public void setInvoiceValue(Double invoiceValue) {
         this.invoiceValue = invoiceValue;
     }
 

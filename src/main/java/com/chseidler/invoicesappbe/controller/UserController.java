@@ -26,15 +26,12 @@ public class UserController {
         if (userDetails.getEmail().isEmpty()) {
             throw new UserServiceException(ErrorMessages.MISSING_REQUIRED_FIELDS.getErrorMessage());
         }
-
         if (userDetails.getNickname().isEmpty()) {
             throw new UserServiceException(ErrorMessages.MISSING_REQUIRED_FIELDS.getErrorMessage());
         }
-
         if (userDetails.getPassword().isEmpty()) {
             throw new UserServiceException(ErrorMessages.MISSING_REQUIRED_FIELDS.getErrorMessage());
         }
-
         if (userDetails.getFullName().isEmpty()) {
             throw new UserServiceException(ErrorMessages.MISSING_REQUIRED_FIELDS.getErrorMessage());
         }

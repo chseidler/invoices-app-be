@@ -7,8 +7,8 @@ public class InvoiceDetailsRequestModel {
 
     private String userId;
     private String invoiceName;
-    private Date invoiceDate;
-    private BigDecimal invoiceValue;
+    private String invoiceDate;
+    private Double invoiceValue;
     private String invoiceStatus;
 
     public String getUserId() {
@@ -27,19 +27,19 @@ public class InvoiceDetailsRequestModel {
         this.invoiceName = invoiceName;
     }
 
-    public Date getInvoiceDate() {
+    public String getInvoiceDate() {
         return invoiceDate;
     }
 
-    public void setInvoiceDate(Date invoiceDate) {
+    public void setInvoiceDate(String invoiceDate) {
         this.invoiceDate = invoiceDate;
     }
 
-    public BigDecimal getInvoiceValue() {
+    public Double getInvoiceValue() {
         return invoiceValue;
     }
 
-    public void setInvoiceValue(BigDecimal invoiceValue) {
+    public void setInvoiceValue(Double invoiceValue) {
         this.invoiceValue = invoiceValue;
     }
 

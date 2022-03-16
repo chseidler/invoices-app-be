@@ -1,8 +1,6 @@
 package com.chseidler.invoicesappbe.dto;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Date;
 
 public class InvoiceDTO implements Serializable {
 
@@ -12,8 +10,8 @@ public class InvoiceDTO implements Serializable {
     private String userId;
     private String invoiceId;
     private String invoiceName;
-    private Date invoiceDate;
-    private BigDecimal invoiceValue;
+    private String invoiceDate;
+    private Double invoiceValue;
     private String invoiceStatus;
 
     public long getId() {
@@ -48,19 +46,19 @@ public class InvoiceDTO implements Serializable {
         this.invoiceName = invoiceName;
     }
 
-    public Date getInvoiceDate() {
+    public String getInvoiceDate() {
         return invoiceDate;
     }
 
-    public void setInvoiceDate(Date invoiceDate) {
+    public void setInvoiceDate(String invoiceDate) {
         this.invoiceDate = invoiceDate;
     }
 
-    public BigDecimal getInvoiceValue() {
+    public Double getInvoiceValue() {
         return invoiceValue;
     }
 
-    public void setInvoiceValue(BigDecimal invoiceValue) {
+    public void setInvoiceValue(Double invoiceValue) {
         this.invoiceValue = invoiceValue;
     }
 
